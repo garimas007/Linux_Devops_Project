@@ -1,0 +1,89 @@
+Linux Basics assignment
+
+1. creating and renaming files and directories
+    $ mkdir test_dir
+    $ cd .\test_dir\
+    $ touch example.txt
+    $ ls
+        example.txt
+    $ mv example.txt renamed_example.txt
+    $ ls
+        renamed_example.txt
+    
+2. Viewing File Content
+    $ cat /etc/passwd
+    output - 
+        root:x:0:0:root:/root:/bin/bash
+        daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+        bin:x:2:2:bin:/bin:/usr/sbin/nologin
+        sys:x:3:3:sys:/dev:/usr/sbin/nologin
+        sync:x:4:65534:sync:/bin:/bin/sync
+        games:x:5:60:games:/usr/games:/usr/sbin/nologin
+        man:x:6:12:man:/var/cache/man:/usr/sbin/nologin
+        lp:x:7:7:lp:/var/spool/lpd:/usr/sbin/nologin
+        mail:x:8:8:mail:/var/mail:/usr/sbin/nologin
+        news:x:9:9:news:/var/spool/news:/usr/sbin/nologin
+        uucp:x:10:10:uucp:/var/spool/uucp:/usr/sbin/nologin
+        proxy:x:13:13:proxy:/bin:/usr/sbin/nologin
+        www-data:x:33:33:www-data:/var/www:/usr/sbin/nologin
+        backup:x:34:34:backup:/var/backups:/usr/sbin/nologin
+        list:x:38:38:Mailing List Manager:/var/list:/usr/sbin/nologin
+        irc:x:39:39:ircd:/run/ircd:/usr/sbin/nologin
+        _apt:x:42:65534::/nonexistent:/usr/sbin/nologin
+        nobody:x:65534:65534:nobody:/nonexistent:/usr/sbin/nologin
+        systemd-network:x:998:998:systemd Network Management:/:/usr/sbin/nologin
+        systemd-timesync:x:996:996:systemd Time Synchronization:/:/usr/sbin/nologin
+        dhcpcd:x:100:65534:DHCP Client Daemon,,,:/usr/lib/dhcpcd:/bin/false
+        messagebus:x:101:101::/nonexistent:/usr/sbin/nologin
+        syslog:x:102:102::/nonexistent:/usr/sbin/nologin
+        systemd-resolve:x:991:991:systemd Resolver:/:/usr/sbin/nologin
+        uuidd:x:103:103::/run/uuidd:/usr/sbin/nologin
+        landscape:x:104:105::/var/lib/landscape:/usr/sbin/nologin
+        polkitd:x:990:990:User for polkitd:/:/usr/sbin/nologin
+        admingemy:x:1000:1000:,,,:/home/admingemy:/bin/bash
+
+    $ head -5 /etc/passwd
+        root:x:0:0:root:/root:/bin/bash
+        daemon:x:1:1:daemon:/usr/sbin:/usr/sbin/nologin
+        bin:x:2:2:bin:/bin:/usr/sbin/nologin
+        sys:x:3:3:sys:/dev:/usr/sbin/nologin
+        sync:x:4:65534:sync:/bin:/bin/sync
+
+    $ tail -5 /etc/passwd
+        systemd-resolve:x:991:991:systemd Resolver:/:/usr/sbin/nologin
+        uuidd:x:103:103::/run/uuidd:/usr/sbin/nologin
+        landscape:x:104:105::/var/lib/landscape:/usr/sbin/nologin
+        polkitd:x:990:990:User for polkitd:/:/usr/sbin/nologin
+        admingemy:x:1000:1000:,,,:/home/admingemy:/bin/bash
+
+3.Searching for Patterns
+    $ cat /etc/passwd | grep "root"
+        root:x:0:0:root:/root:/bin/bash
+
+4. Zipping and Unzipping
+    $ tar -cvf test_dir.tar test_dir/
+        drwxrwxrwx 1 root root  4096 Nov 12 09:23 test_dir/
+        -rwxrwxrwx 1 root root 10240 Nov 12 19:55 test_dir.tar*
+
+5. Downloading Files
+    $ wget https://example.com/sample.txt
+        --2025-11-12 20:20:06--  https://example.com/sample.txt
+        Resolving example.com (example.com)... 23.192.228.80, 23.192.228.84, 23.215.0.136, ...
+        Connecting to example.com (example.com)|23.192.228.80|:443... connected.
+        HTTP request sent, awaiting response... 404 Not Found
+        2025-11-12 20:20:08 ERROR 404: Not Found.
+
+6. Changing Permissions
+    $ touch secure.txt
+    $ ls -l
+        -rwxrwxrwx 1 root root     0 Nov 13 10:09 secure.txt
+    $ sudo chmod 444 secure.txt
+    $ ls -l secure.txt 
+        -r--r--r-- 1 root root 0 Nov 13 10:09 secure.txt
+
+7. Working with Environment Variables
+    $ export MY_VAR="Hello, Linux!"
+    $ echo $MY_VAR
+        Hello, Linux!
+
+    
